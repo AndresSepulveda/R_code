@@ -6,7 +6,7 @@
 library(ncdf4)
 library(geodist)
 
-setwd("C:/Users/dgeo/IFOP_Catherine")
+setwd("C:/Users/dgeo/R_code")
 
 inp <-nc_open('20m_E1_av.nc')
   lat <- ncvar_get(inp,varid ='lat')
