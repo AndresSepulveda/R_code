@@ -9,7 +9,7 @@ library(geodist)
 setwd("C:/Users/dgeo/R_code")
 
 inp <-nc_open('20m_E1_av.nc')
-  lat <- ncvar_get(inp,varid ='lat')
+  lat <- ncvar_get(inp,varid ='lat')       # Dimensiones (tiempo,n_particula)
   lon <- ncvar_get(inp,varid ='lon')
   status <- ncvar_get(inp,varid ='status')
   z <- ncvar_get(inp,varid ='z')
