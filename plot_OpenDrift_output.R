@@ -42,6 +42,10 @@ for (i in 1:length(lonini)) {
    dista[i]  <- geodist(pini,pend,measure="haversine")
 }
 
+#
+# TODO:  Integrar distancia a lo largo de la trayectoria
+#
+
 iniend <- cbind(lonini,latini,lonend,latend,dista)
 
 write.csv(iniend,'InicialesFinales.csv')
@@ -57,5 +61,9 @@ par(mfrow=c(1,1))
 plot(latini,dista/1000,main="Distancia",xlab="Latitud"
      ,ylab="Distancia [km]",xlim=c(-34,-22))
 
+#
+# TODO: Las particulas que viajan mucho, quedan cerca de la costa?
+#
 
-hist(dista/1000,main="",xlab = "Distancia [km]",ylab = "%",freq = FALSE)
+
+hist(dista/1000,main="",xlab = "Distancia [km]",ylab = "%",freq = TRUE)
