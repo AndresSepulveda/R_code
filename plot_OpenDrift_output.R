@@ -50,6 +50,11 @@ iniend <- cbind(lonini,latini,lonend,latend,dista)
 
 write.csv(iniend,'InicialesFinales.csv')
 
+#
+#   Adaptar los limites del gráfico (xlim, ylim)
+#   a la zona de estudio
+#
+
 par(mfrow=c(1,2),mar=c(6,5,5,3))
 plot(lonini,latini,main="Inicio",xlab="Longitud"
      ,ylab="Latitud",xlim=c(-75, -70),ylim=c(-34,-22))
