@@ -37,7 +37,7 @@ for (part in 1:length(trajectory)) {
   lonini[part] <- auxlon2[1]
   lonend[part] <- auxlon2[length(auxlon2)]
   # time
-  auxtim <- ptime[auxlon2]
+  auxtim <- ptime[which(auxlon < 1)[[1]]]
   t_ini[part] <- auxtim[1]
 }
 
