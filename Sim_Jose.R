@@ -41,6 +41,8 @@ for (part in 1:length(trajectory)) {
   t_ini[part] <- auxtim[1]
 }
 
+t_ini=(t_ini-t_ini[1])/3600
+
 dista <-c()
 for (i in 1:length(lonini)) {
   pini <- c(lonini[i],latini[i])
@@ -67,6 +69,10 @@ plot(lonend,latend,main="Fin",xlab="Longitud"
 par(mfrow=c(1,1))
 plot(latini,dista/1000,main="Distancia",xlab="Latitud"
      ,ylab="Distancia [km]",xlim=c(-42,-41.3))
+
+plot(ptime)
+
+plot(t_ini)
 
 #
 # TODO: Las particulas que viajan mucho, quedan cerca de la costa?
