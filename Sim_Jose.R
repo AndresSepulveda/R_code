@@ -80,7 +80,9 @@ for (i in 1:length(lonini)) {
 
 iniend <- cbind(t_ini,cercalon,cercalat,lonini,latini,lonend,latend,dista)
 
-write.csv(iniend,'InicialesFinales.csv')
+iniendaux <- format(iniend,digits=4, nsmall=4)
+
+write.csv(iniendaux,'InicialesFinales.csv')
 
 par(mfrow=c(1,2),mar=c(6,5,5,3))
 plot(lonini,latini,main="Inicio",xlab="Longitud"
