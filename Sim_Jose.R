@@ -43,6 +43,29 @@ for (part in 1:length(trajectory)) {
 
 t_ini=(t_ini-t_ini[1])/3600
 
+puntos <- read.table("puntos.txt", header = FALSE)
+latp <- puntos[, c(2)]
+lonp <- puntos[, c(1)]
+plot(lonp,latp)
+
+#
+# Encontrar, para cada partícula liberada, el punto de una lista más cercano
+#
+cercalat <-c()
+cercalon <-c()
+dpuntos <-c()
+
+for (k in 1:length(lonini)) {
+  pini <- c(lonini[k],latini[k])
+
+    for (l in 1:length(lonp)) {
+    auxp <- c(lonp[l],latp[l])  
+    dpuntos[l] <- geodist(pini, auxp, measure = "haversine")        
+  }
+  cercalat[k] <- latp[which(dpuntos == min(dpuntos))[[1]]]
+  cercalon[k] <- lonp[which(dpuntos == min(dpuntos))[[1]]]
+}
+
 dista <-c()
 for (i in 1:length(lonini)) {
   pini <- c(lonini[i],latini[i])
@@ -55,7 +78,7 @@ for (i in 1:length(lonini)) {
 # TODO:  Integrar distancia a lo largo de la trayectoria
 #
 
-iniend <- cbind(t_ini,lonini,latini,lonend,latend,dista)
+iniend <- cbind(t_ini,cercalon,cercalat,lonini,latini,lonend,latend,dista)
 
 write.csv(iniend,'InicialesFinales.csv')
 
