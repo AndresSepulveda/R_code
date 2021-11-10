@@ -53,7 +53,8 @@ plot(lonp,latp)
 #
 cercalat <-c()
 cercalon <-c()
-dpuntos <-c()
+dpuntos  <-c()
+distap   <-c()
 
 for (k in 1:length(lonini)) {
   pini <- c(lonini[k],latini[k])
@@ -64,6 +65,7 @@ for (k in 1:length(lonini)) {
   }
   cercalat[k] <- latp[which(dpuntos == min(dpuntos))[[1]]]
   cercalon[k] <- lonp[which(dpuntos == min(dpuntos))[[1]]]
+  distap[k]   <- min(dpuntos)
 }
 
 dista <-c()
@@ -78,7 +80,7 @@ for (i in 1:length(lonini)) {
 # TODO:  Integrar distancia a lo largo de la trayectoria
 #
 
-iniend <- cbind(t_ini,cercalon,cercalat,lonini,latini,lonend,latend,dista)
+iniend <- cbind(t_ini,cercalon,cercalat,distap, lonini,latini,lonend,latend,dista)
 
 iniendaux <- format(iniend,digits=4, nsmall=4)
 
