@@ -1,3 +1,6 @@
+#
+# https://stackoverflow.com/questions/61838700/query-on-how-to-make-world-heat-map-using-ggplot-in-r
+#
 library(maps)
 library(ggplot2)
 
